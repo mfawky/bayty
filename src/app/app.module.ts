@@ -15,7 +15,6 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from "@angular/common/http";
 import { SharedModule } from "./shared/shared.module";
 import { AuthGuard } from "./core/guards/auth.guard";
-import { TranslateService } from "@ngx-translate/core";
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent, LoaderComponent],
@@ -33,9 +32,8 @@ import { TranslateService } from "@ngx-translate/core";
         deps: [HttpClient]
       }
     })
-    
   ],
-  providers: [TranslateService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

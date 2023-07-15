@@ -29,7 +29,7 @@ import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
         useFactory: httpTranslateLoader,
         deps: [HttpClient]
       }
-    }),
+    })
   ],
   exports: [HttpClientModule],
   providers: [AuthGuard]

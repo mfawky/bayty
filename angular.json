@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Bayty": {
+    "Bayty.Client": {
       "projectType": "application",
       "schematics": {},
       "root": "",
