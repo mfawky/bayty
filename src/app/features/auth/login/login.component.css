@@ -1,0 +1,44 @@
+form {
+  min-height: unset;
+}
+
+.login-cta {
+  font-size: smaller;
+}
+
+.login-cta a {
+  color: var(--primary-base);
+}
+
+[type="submit"] {
+  background: var(--primary-base);
+  color: white;
+}
+
+[type="submit"]:hover {
+  background: var(--primary-hover);
+}
+
+[type="submit"]:disabled {
+  cursor: not-allowed;
+  background: grey;
+}
+
+.checkbox {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.checkbox input {
+  padding: 0;
+  width: max-content;
+}
+
+.checkbox label {
+  margin-right: 16px;
+}
+
+button.button-hidden {
+  all: unset;
+}

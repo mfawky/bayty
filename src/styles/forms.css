@@ -1,0 +1,100 @@
+.form-layout {
+  display: flex;
+  justify-content: center;
+  padding-block: 48px;
+}
+
+form, .form {
+  width: min(600px, 100%);
+  min-height: 100vh;
+  padding: 32px 16px;
+  background: white;
+  box-shadow: var(--layout-shadow);
+  border-radius: 4px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+:is(form, .form) > *:not(.form-group) {
+  text-align: center;
+}
+
+.form-group {
+  margin-block: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-splitter {
+  display: flex;
+  flex-direction: column;
+  gap: 16px 32px;
+}
+
+select {
+  height: 100%;
+}
+
+.form-splitter > * {
+  width: 100%;
+}
+
+:is(input, select, [type="submit"], textarea) {
+  padding: 12px;
+  font-size: normal;
+  width: 100%;
+}
+
+[type="submit"] {
+  margin-top: 48px;
+}
+
+textarea {
+  resize: none;
+}
+
+:is(input, select, textarea) {
+  margin-top: 2px;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  background: var(--light-base);
+}
+
+.error-message {
+  color: hsl(0, 79%, 58%);
+  font-size: smaller;
+}
+
+:is(input, textarea).ng-invalid.ng-touched {
+  background: hsl(0, 100%, 97%);
+}
+
+@media (width > 625px) {
+  form, .form {
+    padding-inline: 32px;
+  }
+
+  .form-splitter {
+    flex-direction: row;
+  }
+
+  .form-splitter.split-2 > * {
+    width: 50%;
+  }
+
+  .form-splitter.split-3 > * {
+    width: 33%;
+  }
+
+  .form-splitter.split-4 > * {
+    width: 25%;
+  }
+}

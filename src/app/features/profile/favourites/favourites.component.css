@@ -1,0 +1,33 @@
+.page-wrapper {
+    padding-block: 32px;
+}
+
+.favourites-container {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.favourites-header {
+    background: #f4f4f4;
+    padding: 32px;
+    box-shadow: var(--layout-shadow);
+
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.favourites-header>*:last-child {
+    margin-left: auto;
+}
+
+@media (width < 625px) {
+    .favourites-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        display: none;
+    }
+}

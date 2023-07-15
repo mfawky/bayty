@@ -1,0 +1,31 @@
+<div class="container page-wrapper">
+    <h1>Verify Phone Number</h1>
+
+    <button class="button button-secondary" (click)="askForPhoneNumberVerification()">Send OTP</button>
+
+    <!-- <div *ngIf="isOTPToggled"> -->
+    <div>
+        <div class="form-group">
+            <div class="form-splitter split-6 otp-field">
+                <div class="form-field">
+                    <label for="OTP">Enter OTP</label>
+                    <div class="otp-group">
+                        <input type="number" min="0" max="9" maxlength="1" [(ngModel)]="digit01">
+                        <input type="number" min="0" max="9" maxlength="1" [(ngModel)]="digit02">
+                        <input type="number" min="0" max="9" maxlength="1" [(ngModel)]="digit03">
+                        <input type="number" min="0" max="9" maxlength="1" [(ngModel)]="digit04">
+                        <input type="number" min="0" max="9" maxlength="1" [(ngModel)]="digit05">
+                        <input type="number" min="0" max="9" maxlength="1" [(ngModel)]="digit06">
+                    </div>
+                    <!-- <span class="error-message">This phone number is incorrect</span> -->
+                </div>
+            </div>
+        </div>
+
+        {{ digit01 }}{{ digit02 }}{{ digit03 }}{{ digit04 }}{{ digit05 }}{{ digit06 }}
+        <button class="button button-primary" (click)="verifyPhoneNumber()">Verify</button>
+        <span>Haven't received the OTP? <a href="">Resend</a></span>
+    </div>
+
+
+</div>

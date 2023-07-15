@@ -1,0 +1,93 @@
+button {
+    all: unset;
+    cursor: pointer;
+    font: inherit;
+}
+
+:is(button, .button) {
+    padding: 12px 24px;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.button-full-width {
+    width: 100%;
+}
+
+.button[disabled], .button:hover[disabled] {
+    background: var(--grey-base);
+    color: white;
+    border: 2px solid var(--grey-base);
+}
+
+/*#region Primary Button  */
+.button-primary {
+    background: white;
+    border: 2px solid var(--primary-base);
+    box-shadow: 0 0 0 calc(1px / 32) var(--primary-base);
+    color: var(--primary-base);
+}
+
+.button-primary:hover {
+    background: var(--primary-base);
+    color: var(--light-base);
+}
+
+.button-primary:hover {
+    background: radial-gradient(farthest-corner at 0 0, var(--primary-base), var(--primary-hover));
+    color: var(--light-base);
+}
+
+/*#endregion */
+
+/*#region Secondary Button  */
+.button-secondary {
+    background: white;
+    border: 2px solid var(--primary-base);
+    box-shadow: 0 0 0 calc(1px / 32) var(--primary-base);
+    color: var(--primary-base);
+}
+
+.button-secondary:hover {
+    background: var(--light-base);
+}
+
+/*#endregion */
+
+/*#region Tertiary Button  */
+.button-tertiary {
+    background: white;
+    color: var(--primary-base);
+    font-size: 15px;
+}
+
+.button-tertiary:hover {
+    background: var(--light-base);
+    color: var(--primary-hover-02);
+}
+
+/*#endregion */
+
+/*#region Icon Button  */
+.button-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+}
+
+.button-icon i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-icon:hover {
+    background: var(--light-base);
+}
+/*#endregion */
+

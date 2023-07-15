@@ -1,0 +1,166 @@
+<div class="page-wrapper container">
+    <h1>{{"List new properties" | translate}}</h1>
+
+    <form class="form" [formGroup]="postAdvertisementForm" enctype="multipart/form-data" (submit)="onSubmit()">
+        <div class="form-group">
+
+            <h2>{{"Basics" | translate}}</h2>
+
+            <div class="form-field">
+                <label for="title">{{"Title" | translate}}</label>
+                <input type="text" placeholder="Title" formControlName="title">
+                <span class="error-message" *ngIf="title?.errors?.['required'] && title?.touched">{{"Please fill this field" | translate}}</span>
+            </div>
+
+            <div class="form-field">
+                <label for="description">{{"Property Description" | translate}}</label>
+                <textarea name="" id="" cols="30" rows="10" placeholder="This property has..."
+                    formControlName="description"></textarea>
+                <span class="error-message" *ngIf="description?.errors?.['required'] && description?.touched">{{"Please fill this field" | translate}}</span>
+            </div>
+
+            <div class="form-field">
+                <label for="address">{{"Property Address" | translate}}</label>
+                <input type="text" placeholder="11 Makram Ebed St. Madinet Nasr, Cairo, Egypt"
+                    formControlName="address">
+                <span class="error-message" *ngIf="address?.errors?.['required'] && address?.touched">{{"Please fill this field"}}</span>
+            </div>
+
+            <div class="form-field">
+                <label for="city">{{"City" | translate}}</label>
+                <input type="text" placeholder="City" formControlName="city">
+                <span class="error-message" *ngIf="city?.errors?.['required'] && city?.touched">{{"Please fill this field" | translate}}</span>
+            </div>
+
+            <div class="form-splitter split-3">
+                <div class="form-field">
+                    <label for="price">{{"Price" | translate}}</label>
+                    <input type="text" placeholder="1200 L.E." formControlName="price">
+                    <span class="error-message" *ngIf="price?.errors?.['required'] && price?.touched">{{"Please fill this field" | translate}}</span>
+                </div>
+                <div class="form-field">
+                    <label for="propertyType">{{"Property Type" | translate}}</label>
+                    <select value="propertyType" formControlName="propertyType">
+                        {{ propertyType }}
+                        <option value="villa">{{"Villa" | translate}}</option>
+                        <option value="apartment">{{"Apartment" | translate}}</option>
+                        <option value="building">{{"Building" | translate}}</option>
+                    </select>
+                    <span class="error-message"
+                        *ngIf="propertyType?.errors?.['required'] && propertyType?.touched">{{"Please fill this field" | translate}}</span>
+                </div>
+                <div class="form-field">
+                    <label for="paymentType">{{"Payment Type" | translate}}</label>
+                    <input type="text" placeholder="paymentType" formControlName="paymentType">
+                    <span class="error-message" *ngIf="paymentType?.errors?.['required'] && paymentType?.touched">{{"Please fill this field" | translate}}</span>
+                </div>
+            </div>
+
+            <div class="form-splitter split-2">
+                <div class="form-field">
+                    <label for="roomsCount">{{"Rooms" | translate}}</label>
+                    <input type="text" placeholder="4" formControlName="roomsCount">
+                    <span class="error-message" *ngIf="roomsCount?.errors?.['required'] && roomsCount?.touched">{{"Please fill this field" | translate}}</span>
+                </div>
+                <div class="form-field">
+                    <label for="bathsCount">{{"Bathrooms" | translate}}</label>
+                    <input type="text" placeholder="2" formControlName="bathsCount">
+                    <span class="error-message" *ngIf="bathsCount?.errors?.['required'] && bathsCount?.touched">{{"Please fill this field" | translate}}</span>
+                </div>
+            </div>
+
+            <div class="categories">
+
+                <h2>{{ propertyType?.value }}</h2>
+
+                <div *ngIf="propertyType?.value == 'villa'">
+                    <div class="form-field">
+                        <label for="hasSwimming">{{"Has swimming pool ?" | translate}}</label>
+                        <input type="text" placeholder="hasSwimming" formControlName="hasSwimming">
+                        <span class="error-message"
+                            *ngIf="hasSwimming?.errors?.['required'] && hasSwimming?.touched">{{"Please fill this field" | translate}}</span>
+                    </div>
+                </div>
+
+                <div *ngIf="propertyType?.value == 'apartment'">
+                    <div class="form-splitter split-2">
+                        <div class="form-field">
+                            <label for="floorNumber">{{"Floor Number" | translate}}</label>
+                            <input type="text" placeholder="Floor Number" formControlName="floorNumber">
+                            <span class="error-message"
+                                *ngIf="floorNumber?.errors?.['required'] && floorNumber?.touched">{{"Please fill this field" | translate}}</span>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="isFurnished">{{"Furnishing" | translate}}</label>
+                            <input type="text" placeholder="isFurnished" formControlName="isFurnished">
+                            <span class="error-message"
+                                *ngIf="isFurnished?.errors?.['required'] && isFurnished?.touched">{{"Please fill this field" | translate}}</span>
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="isVitalSight">{{"Is Vital Sight" | translate}}</label>
+                        <input type="text" placeholder="isVitalSight" formControlName="isVitalSight">
+                        <span class="error-message"
+                            *ngIf="isVitalSight?.errors?.['required'] && isVitalSight?.touched">{{"Please fill this field" | translate}}</span>
+                    </div>
+                </div>
+
+                <div *ngIf="propertyType?.value == 'building'">
+                    <div class="form-field">
+                        <label for="numOfFlats">{{"Number of Flats" | translate}}</label>
+                        <input type="text" placeholder="Number of Flats" formControlName="numOfFlats">
+                        <span class="error-message"
+                            *ngIf="numOfFlats?.errors?.['required'] && numOfFlats?.touched">{{"Please fill this field" | translate}}</span>
+                    </div>
+                </div>
+
+                <div *ngIf="propertyType?.value == 'building' || propertyType?.value == 'apartment'">
+                    <div class="form-field">
+                        <label for="hasElevator">{{"Has Elevator" | translate}}</label>
+                        <input type="text" placeholder="Has Elevator" formControlName="hasElevator">
+                        <span class="error-message"
+                            *ngIf="hasElevator?.errors?.['required'] && hasElevator?.touched">{{"Please fill this field" | translate}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <!-- <div class="form-field">
+                <label class="imageUrl-container" for="imageUrl">
+                    <i class="icon icon-ic_fluent_image_20_regular"></i>
+                    <div><span>Upload an image</span> or drag and drop</div>
+                    <div>Image size up to 20MB</div>
+                    <div>760px minimum width</div>
+                </label>
+                <input type="file" name="imageUrl" id="imageUrl">
+            </div> -->
+
+        <!-- <input #imageToUpload type="file" multiple name="imageUrl" id="imageUrl" value="Choose image"> -->
+
+        <input type="file" multiple #imageToUpload>
+        <button type="submit" class="button button-primary">{{"Submit" | translate}}</button>
+
+        <!-- <img width="256" height="256"
+                src="https://images.unsplash.com/photo-1532323544230-7191fd51bc1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80"
+                alt=""> -->
+        <!-- <div class="image-group" *ngFor="let image of images">
+                <img width="256" height="256" [src]="imageToUpload?.name" alt="">
+            </div> -->
+
+        <!-- <button type="submit" class="button button-primary" [disabled]="postAdvertisementForm.invalid">Add
+                property</button>
+
+            <button type="submit" class="button button-primary">Add
+                property</button> -->
+
+
+    </form>
+</div>

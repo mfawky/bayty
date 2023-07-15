@@ -1,0 +1,48 @@
+<div class="form-layout">
+
+  <form (ngSubmit)="login()" [formGroup]="loginForm">
+    <h1>Login</h1>
+    <p>Join the club for scouts where you can find your dream house</p>
+
+    <div class="form-group">
+
+      <div class="form-field">
+        <label for="email">Email</label>
+        <input id="email" formControlName="email" placeholder=" john.doe123@mail.com">
+        <span class="error-message" *ngIf="email?.errors?.['required'] && email?.touched">Please fill this
+          field</span>
+        <span class="error-message" *ngIf="email?.errors?.['email']">Please enter a valid e-mail address.</span>
+      </div>
+
+      <div class="form-field">
+        <label for="Password">Password</label>
+        <input id="Password" type="password" formControlName="password" minlength="8" maxlength="33"
+          placeholder="Your secret password">
+          <span class="error-message" *ngIf="password?.errors?.['required'] && password?.touched">Please fill this
+          field</span>
+        <span class="error-message" *ngIf="password?.errors?.['minlength']">Must be at least 8
+          characters long.</span>
+        <span class="error-message" *ngIf="password?.errors?.['maxlength']">Must be at most 32
+          characters long.</span>
+      </div>
+
+
+      <div class="checkbox">
+        <label for="rememberMe">Remember Me</label>
+        <input id="rememberMe" type="checkbox" formControlName="rememberMe">
+      </div>
+
+      <div class="login-cta">
+        <span>Don't have account?&nbsp;</span>
+        <a routerLink="/register">Create new one</a>
+      </div>
+    </div>
+
+    <span class="error-message" *ngIf="loginForm.hasError('invalidCredentials')">Incorrect email/password pair.</span>
+
+    <button class="button-hidden" routerLink="/admin"></button>
+    
+    <button type="submit" [disabled]="loginForm.invalid">Login</button>
+
+  </form>
+</div>

@@ -1,0 +1,46 @@
+<div class="home-filter" [class.rtl]= "currentLang === 'ar'" >
+
+    <span class="state">{{ isRented ? "Rent" : "Buy" | translate }}</span>
+    <div class="toggle-container">
+        <input type="checkbox" (change)="isRented = !isRented" id="toggle" class="toggle-checkbox" />
+        <label for="toggle" class="toggle-label"></label>
+    </div>
+
+
+    <div class="c-form-group">
+        <div class="c-form-row">
+            <div class="c-form-field">
+                <input type="text" placeholder="Location">
+            </div>
+
+            <div class="c-form-field c-select">
+                <select placeholder="Property Type">
+                    <option class="placeholder" value="" selected>{{"Property Type" | translate}}</option>
+                    <option value="">{{"Villa" | translate}}</option>
+                    <option value="">{{"Apartment" | translate}}</option>
+                </select>
+                <div class="select-icon">
+                    <i class="icon icon-ic_fluent_chevron_down_20_regular"></i>
+                </div>
+            </div>
+
+            <div class="c-form-field">
+                <input type="text" placeholder="Space">
+            </div>
+        </div>
+
+        <div class="c-form-row">
+            <div class="c-form-field">
+                <input type="text" placeholder="Min Price">
+            </div>
+            <div class="c-form-field">
+                <input type="text" placeholder="Max Price">
+            </div>
+        </div>
+        <div class="c-form-field">
+            <button routerLink="advertisement/search" class="button button-primary" type="submit">
+                <span>{{"Search" | translate}}</span>
+            </button>
+        </div>
+    </div>
+</div>

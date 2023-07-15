@@ -1,0 +1,48 @@
+.page-wrapper {
+    padding-block: 32px;
+}
+
+.card {
+    margin-top: 32px;
+    background: white;
+    box-shadow: var(--layout-shadow);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.card:hover {
+    background: #f4f3f3;
+}
+
+summary, article {
+    padding: 32px;
+}
+
+summary+p {
+    margin-top: 32px;
+}
+
+article {
+    padding-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+article ol li {
+    list-style: decimal;
+    margin-left: 20px;
+    margin-block: 16px;
+}
+
+article strong {
+    margin-bottom: 8px;
+}
+
+article em {
+    font-size: 14px;
+}
+
+.button {
+    margin-top: 32px;
+}
